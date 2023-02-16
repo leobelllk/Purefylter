@@ -2,27 +2,142 @@
 
     .hero-banner-container {
         display: flex;
-        flex-direction: columns;
+        flex-direction: column;
+    }
+
+    .hero-banner-blocks {
+    }
+
+    .image-banner{
+        width: 100%;
+    }
+
+    .hero-banner-content.second {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        text-align: center;
+    }
+
+    .hero-banner-content.second.desktop {
+        display: none;
+    }
+
+    .hero-banner-content.second.mobile {
+        background:#f3e9e3;
+        padding: 10px 15px 30px;
+        margin-top: -10px;
+        font-family: 'Lexend', sans-serif;
+    }
+
+    .hero-banner-content.second.mobile > h2 {
+        font-weight: bold;
+        color: #2790d4;
+        font-family: 'Lexend', sans-serif;
+        font-size: 14px;
+    }
+
+    .hero-banner-content.second.mobile > p {
+        font-size: 1rem;
+        margin-top: -5px;
+        color: #6c625c; 
+        width: 230px;
+        margin-bottom: 10px;
+    }
+
+    .hero-banner-content.second.mobile > button {
+        padding: 15px 40px;
+        border-radius: 12px;
+        background: #2790d4;
+        border-color: #9ac3de;
+        font-size: 15px;
+        font-weight: bold;
+        color: white;
+    }
+
+    @media screen and (min-width: 750px) {
+        .hero-banner-wrapper {
+            width: 100%;
+            background:#f3e9e3;
+        }
+
+        .hero-banner-blocks {
+            width: 50%;
+            background:#f3e9e3;
+        }
+
+        .image-banner{
+            width: 100%;
+            height: 100%;
+        }
+
+        .hero-banner-content.second.desktop {
+            display: flex;
+            background:#f3e9e3;
+            font-family: 'Lexend', sans-serif;
+            padding: 0px 10rem;
+        }
+
+        .hero-banner-content.second.desktop > h2 {
+            font-weight: bold;
+            color: #2790d4;
+            font-family: 'Lexend', sans-serif;
+            font-size: 22px;
+        }
+
+        .hero-banner-content.second.desktop > p {
+            font-size: 15px;
+            color: #6c625c; 
+        }
+
+        .hero-banner-content.second.desktop > button {
+            padding: 20px 35px;
+            border-radius: 12px;
+            background: #2790d4;
+            border-color: #9ac3de;
+            font-size: 20px;
+            font-weight: bold;
+            color: white;
+            margin-top: 10px;
+        }
+
+        .hero-banner-content.second.mobile {
+            display: none;
+        }
+
+        .hero-banner-container {
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+        }
     }
 
 </style>
 
-<div class=hero-banner-wrapper>
-    <div class=hero-banner-container>
+
+<div class="hero-banner-wrapper">
+    <div class="hero-banner-container">
         <div class="hero-banner-blocks">
-            <img src="{{ block.settings.hero_banner_image | image_url: width: 1200 }}" width="" height="" loading="lazy">
+            <img class="image-banner" src="{{ section.settings.hero_banner_image | image_url: width: 1200 }}" width="auto" height="" loading="lazy">
         </div>
         <div class="hero-banner-blocks">
-            <div class="hero-banner-content">
+            <div class="hero-banner-content second desktop">
                 <h2>COMBINAÇÃO FEITA NOS CÉUS</h2>
                 <h2>ÁGUA LIMPA & SUA PELE</h2>
                 <p>Do que adianta gastar com inúmeros cremes se a água que você limpa seu rosto está suja? Faça a melhor escolha para sua pele.</p>
-                <p>LUNCHING PROMO: 15%OFF com o código ÁGUALIMPA.</p>
+                <p style="font-weight: bold;">LUNCHING PROMO: 15%OFF com o código ÁGUALIMPA.</p>
                 <button>SHOP NOW</button>
-            </div>    
+            </div>
+            <div class="hero-banner-content second mobile page-width">
+                <h2>SUA PELE MERECE ÁGUA LIMPA</h2>
+                <p>O primeiro dispositivo de purificação de água aprovado dermatologicamente para o tratamento da sua pele.</p>
+                <button>SHOP NOW</button>
+            </div>      
         </div>
     </div>
 </div>
+
+
 {% schema %}
 {
   "name": "Hero Banner",
