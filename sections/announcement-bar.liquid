@@ -1,105 +1,106 @@
-{%- for block in section.blocks -%}
-  {%- case block.type -%}
-    {%- when 'announcement' -%}
-      <div class="announcement-bar color-{{ block.settings.color_scheme }} gradient" role="region" aria-label="{{ 'sections.header.announcement' | t }}" {{ block.shopify_attributes }}>
-        {%- if block.settings.text != blank -%}
-          {%- if block.settings.link != blank -%}
-            <a href="{{ block.settings.link }}" class="announcement-bar__link link link--text focus-inset animate-arrow">
-          {%- endif -%}
-              <div class="page-width">
-                <p class="announcement-bar__message {{ block.settings.text_alignment }} h5">
-                  <span>{{ block.settings.text | escape }}</span>
-                  {%- if block.settings.link != blank -%}
-                    {% render 'icon-arrow' %}
-                  {%- endif -%}
-                </p>
-              </div>
-          {%- if block.settings.link != blank -%}
-            </a>
-          {%- endif -%}
-        {%- endif -%}
+{% style %}
+  .scroll-left {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      max-width: 100vw;
+      height: 100%;
+      background: {{ section.settings.autoplay-bg }};
+      overflow-x: hidden;
+      border-right: none;
+      border-left: none;
+  }
+
+  .scroll-left div {
+		padding-top: 1rem;
+  	min-width: 600px;
+  	min-height: 20px;
+  	border: none;
+		font-family: var(--font-body-family);
+		display: flex;
+		margin-right: 0;
+		letter-spacing: -0.06rem;
+		text-align: center;
+		/* Starting position */
+		-moz-transform:translateX(100%);
+		-webkit-transform:translateX(100%);
+		transform:translateX(100%);
+		/* Apply animation to this element */
+		-moz-animation: scroll-left 30s linear infinite;
+		-webkit-animation: scroll-left 30s linear infinite;
+		animation: scroll-left 30s linear infinite;
+    gap: 40px;
+  }
+
+  .announcement-bar__message.h5{
+    display: flex;
+    gap: 70px;
+    font-size: 12px;
+    font-weight: bold;
+    color: white;
+  }
+
+	/* Move it (define the animation) */
+	@-moz-keyframes scroll-left {
+		0%   { -moz-transform: translateX(100%); }
+		100% { -moz-transform: translateX(-100%); }
+	}
+
+	@-webkit-keyframes scroll-left {
+		0%   { -webkit-transform: translateX(100%); }
+		100% { -webkit-transform: translateX(-100%); }
+	}
+
+	@keyframes scroll-left {
+		0%   {
+			-moz-transform: translateX(100%); /* Browser bug fix */
+			-webkit-transform: translateX(100%); /* Browser bug fix */
+			transform: translateX(100%);
+		}
+		100% {
+			-moz-transform: translateX(-100%); /* Browser bug fix */
+			-webkit-transform: translateX(-100%); /* Browser bug fix */
+			transform: translateX(-100%);
+		}
+	}
+{% endstyle %}
+
+<div class="scroll-left">
+  {% for i in (1..999) %}
+      <div class="announcement-bar__message h5">
+        <span>{{ section.settings.text }}</span>
+        <span>{{ section.settings.text_2 }}</span>
       </div>
-  {%- endcase -%}
-{%- endfor -%}
+  {% endfor %}
+</div>
 
 {% schema %}
 {
-  "name": "t:sections.announcement-bar.name",
-  "max_blocks": 12,
-  "class": "announcement-bar-section",
-  "blocks": [
+  "name": "Autoplay Text by Turbo",
+  "settings": [
     {
-      "type": "announcement",
-      "name": "t:sections.announcement-bar.blocks.announcement.name",
-      "settings": [
-        {
-          "type": "text",
-          "id": "text",
-          "default": "Welcome to our store",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.text.label"
-        },
-        {
-          "type": "select",
-          "id": "text_alignment",
-          "options": [
-            {
-              "value": "left",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.text_alignment.options__1.label"
-            },
-            {
-              "value": "center",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.text_alignment.options__2.label"
-            },
-            {
-              "value": "right",
-              "label": "t:sections.announcement-bar.blocks.announcement.settings.text_alignment.options__3.label"
-            }
-          ],
-          "default": "center",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.text_alignment.label"
-        },
-        {
-          "type": "select",
-          "id": "color_scheme",
-          "options": [
-            {
-              "value": "accent-1",
-              "label": "t:sections.all.colors.accent_1.label"
-            },
-            {
-              "value": "accent-2",
-              "label": "t:sections.all.colors.accent_2.label"
-            },
-            {
-              "value": "background-1",
-              "label": "t:sections.all.colors.background_1.label"
-            },
-            {
-              "value": "background-2",
-              "label": "t:sections.all.colors.background_2.label"
-            },
-            {
-              "value": "inverse",
-              "label": "t:sections.all.colors.inverse.label"
-            }
-          ],
-          "default": "accent-1",
-          "label": "t:sections.all.colors.label"
-        },
-        {
-          "type": "url",
-          "id": "link",
-          "label": "t:sections.announcement-bar.blocks.announcement.settings.link.label"
-        }
-      ]
+      "type": "text",
+      "id": "text",
+      "label": "Texto",
+      "default": "REEMBOLSO 100% GARANTIDO"
+    },
+    {
+      "type": "text",
+      "id": "text_2",
+      "label": "Texto",
+      "default": "FRETE GRÁTIS PARA ASSINATURAS E COMPRAS ACIMA DE R$150"
+    },
+    {
+      "type": "color",
+      "id": "autoplay-bg",
+      "label": "Cor de fundo",
+      "default": "#DA2486"
     }
   ],
-  "default": {
-    "blocks": [
-      {
-        "type": "announcement"
-      }
-    ]
-  }
+  "presets": [
+    {
+      "name": "Autoplay Text Turbo"
+    }
+  ]
 }
 {% endschema %}
