@@ -1,5 +1,11 @@
 {
   "sections": {
+    "e725ad2c-5490-4004-8b3a-f45f16a510a5": {
+      "type": "hero-banner",
+      "settings": {
+        "hero_banner_image": "shopify:\/\/shop_images\/website-photos-4-1675471922694_png.png"
+      }
+    },
     "featured_collection": {
       "type": "featured-collection",
       "settings": {
@@ -29,6 +35,7 @@
     }
   },
   "order": [
+    "e725ad2c-5490-4004-8b3a-f45f16a510a5",
     "featured_collection"
   ]
 }
