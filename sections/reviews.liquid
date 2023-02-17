@@ -1,6 +1,7 @@
 <style>
     .swiper {
         padding: 1rem;
+        background: #E9F2F4;
     }
     .title-carroussel-compare{
         text-align: center; 
@@ -12,62 +13,109 @@
         display: flex;
         flex-direction: column;
         align-items: center;
-        margin: 0;
-        border: 1px solid;
-        border-radius: 10px;
+        text-align: center;
     }
     .swiper-slide.block {
-        
-
+        width: 100%;
     }
+
+    .swiper-wrapper {
+        display: flex;
+        align-items: center;
+    }
+
+    .block-container > h2 {
+        font-weight: bold;
+        font-size: 1.4rem;
+    }
+
+    .block-container {
+        padding: 1.5rem;
+    }
+
+    .block-container > p {
+        font-size: 1.2rem;
+        letter-spacing: -0.05rem;
+    }
+
+    .swiper-button-prev > svg {
+        width: 20px;
+    }
+
     @media screen and (min-width: 749px) {
         .title-carroussel-compare > h2{
             font-size: 3rem;  
+        }
+
+        .swiper {
+            margin-top: -10px;
+        }
+
+        .block-container > p {
+            width: 270px;
         }
     }
     </style>
     
     <div class="swiper">
         <!-- Additional required wrapper -->
-        <div class="swiper-wrapper page-width">
+        <div class="swiper-wrapper">
           <!-- Slides -->
           <div class="swiper-slide block">
-            {% render 'stars' %}
-            <h2>100+ Avaliações 5 Estrelas</h2>
-            <h2>VEJA O QUE OS ESPECIALISTAS FALAM</h2>
+            <div class="block-container">
+                {% render 'stars' %}
+                <h2>100+ AVALIAÇÕES 5 ESTRELAS</h2>
+                <h2>VEJA O QUE OS ESPECIALISTAS FALAM</h2>
+            </div>
           </div>
           <div class="swiper-slide block">
-            <p>"Constatei com o Purefylter a redução impurezas, como cloro, bactérias, vírus, metais pesados e outras substâncias que podem estar presentes na água da torneira. Isso ajuda a evitar irritações na pele e possíveis danos."</p>
-            <h2>NOME DO PROFISSIONAL</h2>
+            <div class="block-container">
+                <p>"Constatei com o Purefylter a redução impurezas, como cloro, bactérias, vírus, metais pesados e outras substâncias que podem estar presentes na água da torneira. Isso ajuda a evitar irritações na pele e possíveis danos."</p>
+                <h2>NOME DO PROFISSIONAL</h2>
+            </div>
           </div>
           <div class="swiper-slide block">
-            <p>"A água filtrada é mais suave e menos irritante do que a água da torneira, e pode ajudar a manter a pele hidratada, macia e flexível. Por isso recomendo o uso do Purefylter"</p>
-            <h2>NOME DO PROFISSIONAL</h2>
+            <div class="block-container">
+                <p>"A água filtrada é mais suave e menos irritante do que a água da torneira, e pode ajudar a manter a pele hidratada, macia e flexível. Por isso recomendo o uso do Purefylter"</p>
+                <h2>NOME DO PROFISSIONAL</h2>
+            </div>
           </div>
           <div class="swiper-slide block">
-            <p>"Muita gente não sabe, mas muitas irritações na pele podem ser evitadas com o uso da água purificada do Purefylter."</p>
-            <h2>NOME DO PROFISSIONAL</h2>
+            <div class="block-container">
+                <p>"Muita gente não sabe, mas muitas irritações na pele podem ser evitadas com o uso da água purificada do Purefylter."</p>
+                <h2>NOME DO PROFISSIONAL</h2>
+            </div>
           </div>
           <div class="swiper-slide block">
-            <p>"A água da torneira pode conter impurezas que podem entupir os poros e levar a problemas de pele, como acne e espinhas. A água filtrada pode ajudar a evitar esses problemas, mantendo os poros limpos e saudáveis."</p>
-            <h2>NOME DO PROFISSIONAL</h2>
+            <div class="block-container">
+                <p>"A água da torneira pode conter impurezas que podem entupir os poros e levar a problemas de pele, como acne e espinhas. A água filtrada pode ajudar a evitar esses problemas, mantendo os poros limpos e saudáveis."</p>
+                <h2>NOME DO PROFISSIONAL</h2>
+            </div>
           </div>
           <div class="swiper-slide block">
-            <p>"Com o uso da água filtrada a absorção de produtos para cuidados com a pele melhora muito."</p>
-            <h2>NOME DO PROFISSIONAL</h2>
+            <div class="block-container">
+                <p>"Com o uso da água filtrada a absorção de produtos para cuidados com a pele melhora muito."</p>
+                <h2>NOME DO PROFISSIONAL</h2>
+            </div>
           </div>
+
+            <div class="swiper-button-prev">{% render 'seta-prev' %}</div>
+            <div class="swiper-button-next">{% render 'seta-next' %}</div>
         </div>
+     </div>
     
         <script>
             const swiper = new Swiper('.swiper', {
                 speed: 400,
-                spaceBetween: 100,
-                slidesPerView: 2.5,
-                spaceBetween: 10,
+                slidesPerView: 1,
                 breakpoints: {
-                640: {
-                    slidesPerView: 5.2,
+                750: {
+                    slidesPerView: 2,
                 }
+                },
+                navigation: {
+                    nextEl: '.swiper-button-next',
+                    prevEl: '.swiper-button-prev'
                 }
               });
         </script>    
