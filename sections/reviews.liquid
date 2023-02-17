@@ -1,0 +1,98 @@
+<style>
+    .swiper {
+        padding: 1rem;
+    }
+    .title-carroussel-compare{
+        text-align: center; 
+    }
+    .title-carroussel-compare > h2{
+        font-weight: bold;  
+    }
+    .swiper-slide {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        margin: 0;
+        border: 1px solid;
+        border-radius: 10px;
+    }
+    .swiper-slide.block {
+        
+
+    }
+    @media screen and (min-width: 749px) {
+        .title-carroussel-compare > h2{
+            font-size: 3rem;  
+        }
+    }
+    </style>
+    
+    <div class="swiper">
+        <!-- Additional required wrapper -->
+        <div class="swiper-wrapper page-width">
+          <!-- Slides -->
+          <div class="swiper-slide block">
+            {% render 'stars' %}
+            <h2>100+ Avaliações 5 Estrelas</h2>
+            <h2>VEJA O QUE OS ESPECIALISTAS FALAM</h2>
+          </div>
+          <div class="swiper-slide block">
+            <p>"Constatei com o Purefylter a redução impurezas, como cloro, bactérias, vírus, metais pesados e outras substâncias que podem estar presentes na água da torneira. Isso ajuda a evitar irritações na pele e possíveis danos."</p>
+            <h2>NOME DO PROFISSIONAL</h2>
+          </div>
+          <div class="swiper-slide block">
+            <p>"A água filtrada é mais suave e menos irritante do que a água da torneira, e pode ajudar a manter a pele hidratada, macia e flexível. Por isso recomendo o uso do Purefylter"</p>
+            <h2>NOME DO PROFISSIONAL</h2>
+          </div>
+          <div class="swiper-slide block">
+            <p>"Muita gente não sabe, mas muitas irritações na pele podem ser evitadas com o uso da água purificada do Purefylter."</p>
+            <h2>NOME DO PROFISSIONAL</h2>
+          </div>
+          <div class="swiper-slide block">
+            <p>"A água da torneira pode conter impurezas que podem entupir os poros e levar a problemas de pele, como acne e espinhas. A água filtrada pode ajudar a evitar esses problemas, mantendo os poros limpos e saudáveis."</p>
+            <h2>NOME DO PROFISSIONAL</h2>
+          </div>
+          <div class="swiper-slide block">
+            <p>"Com o uso da água filtrada a absorção de produtos para cuidados com a pele melhora muito."</p>
+            <h2>NOME DO PROFISSIONAL</h2>
+          </div>
+        </div>
+    
+        <script>
+            const swiper = new Swiper('.swiper', {
+                speed: 400,
+                spaceBetween: 100,
+                slidesPerView: 2.5,
+                spaceBetween: 10,
+                breakpoints: {
+                640: {
+                    slidesPerView: 5.2,
+                }
+                }
+              });
+        </script>    
+    
+    {% schema %}
+        {
+            "name": "Reviews",
+            "class": "section",
+            "tag": "section",
+            "settings":[
+                {
+                    "type":"image_picker",
+                    "id":"image_slide_1",
+                    "label":"Whitout Image 1"
+                },
+                {
+                    "type":"text",
+                    "id":"text_slide_1",
+                    "label":"Text Image 1"
+                },        
+            ],
+            "presets": [
+            {
+                "name": "Reviews"
+            }
+            ]
+        }
+    {% endschema %}
