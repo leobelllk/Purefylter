@@ -5,9 +5,16 @@
       "settings": {
         "hero_banner_image": "shopify:\/\/shop_images\/website-photos-4-1675471922694_png.png"
       }
+    },
+    "bf321089-989c-4f31-b4f2-17ebd1544621": {
+      "type": "reviews",
+      "settings": {
+        "text_slide_1": ""
+      }
     }
   },
   "order": [
-    "e725ad2c-5490-4004-8b3a-f45f16a510a5"
+    "e725ad2c-5490-4004-8b3a-f45f16a510a5",
+    "bf321089-989c-4f31-b4f2-17ebd1544621"
   ]
 }
